@@ -1,0 +1,108 @@
+####################################
+# General
+####################################
+*.log
+*.tmp
+*.bak
+*.swp
+*.pid
+*.seed
+*.pid.lock
+
+.env
+.env.*
+!.env.example
+
+####################################
+# OS files
+####################################
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+####################################
+# IDEs / Editors
+####################################
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+####################################
+# Visual Studio / .NET 9
+####################################
+# Build outputs
+bin/
+obj/
+out/
+artifacts/
+
+# Visual Studio
+.vs/
+
+# Test results & coverage
+TestResults/
+coverage/
+coverage.*
+*.trx
+
+# dotnet tooling
+*.cache
+project.lock.json
+project.fragment.lock.json
+
+####################################
+# ASP.NET Core configuration & secrets
+####################################
+secrets.json
+appsettings.*.json
+!appsettings.Development.json
+!appsettings.json
+
+####################################
+# Angular 20 / Node
+####################################
+node_modules/
+dist/
+out-tsc/
+tmp/
+
+# Angular CLI 20 cache
+.angular/
+.angular/cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+####################################
+# Frontend environment files
+####################################
+environment*.ts
+!environment.example.ts
+
+####################################
+# Package managers
+####################################
+# ⚠️ Uncomment ONE of these if you want reproducible frontend builds
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+####################################
+# Docker
+####################################
+docker-compose.override.yml
+*.docker.env
+
+####################################
+# CI / Publish outputs
+####################################
+.publish/
+.deploy/
+
