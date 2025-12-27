@@ -28,6 +28,9 @@ public class Document
     
     public IReadOnlyCollection<ApprovalStep> ApprovalSteps => _approvalSteps;
     
+    // Optimistic concurrency (EF Core will populate this)
+    public byte[] RowVersion { get; private set; } = Array.Empty<byte>();
+    
     public void Submit()
     {
         if (Status != DocumentStatus.Draft)

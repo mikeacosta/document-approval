@@ -1,6 +1,6 @@
 Project: Document Approval API
 Tech:
-- .NET 9, ASP.NET Core
+- .NET 10, ASP.NET Core
 - EF Core
 - JWT auth (seeded demo users)
 - Clean Architecture
@@ -13,7 +13,7 @@ Domain:
 - Sequential approvals only
 
 Frontend:
-- Minimal Angular shell
+- Minimal React shell
 - Login, list, detail, approve/reject
 
 Goal:
