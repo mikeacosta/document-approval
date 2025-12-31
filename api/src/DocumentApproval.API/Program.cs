@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+
 // Add services to the container.
+builder.Services.AddInfrastructure(connectionString);
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
-builder.Services.AddDbContext<AppDbContext>(
-    dbContextOptions => dbContextOptions.UseNpgsql(
-        builder.Configuration["ConnectionStrings:DefaultConnection"]));
 
 var app = builder.Build();
 

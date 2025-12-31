@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DocumentApproval.Domain\DocumentApproval.Domain.csproj" />
+      <ProjectReference Include="..\DocumentApproval.Application\DocumentApproval.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>

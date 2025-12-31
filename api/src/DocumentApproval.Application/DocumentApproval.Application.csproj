@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DocumentApproval.Domain\DocumentApproval.Domain.csproj" />
-      <ProjectReference Include="..\DocumentApproval.Infrastructure\DocumentApproval.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

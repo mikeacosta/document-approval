@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DocumentApproval.Application\DocumentApproval.Application.csproj" />
+      <ProjectReference Include="..\DocumentApproval.Infrastructure\DocumentApproval.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

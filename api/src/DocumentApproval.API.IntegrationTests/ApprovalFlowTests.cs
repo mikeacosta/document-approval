@@ -63,6 +63,6 @@ public class ApprovalFlowTests : IClassFixture<WebApplicationFactory<Program>>
         var document = await _client.GetFromJsonAsync<dynamic>(
             $"/documents/{documentId}");
 
-        Assert.Equal("Approved", (string)document.status);
+        Assert.Equal("Approved", (string)document?.status!);
     }    
 }
