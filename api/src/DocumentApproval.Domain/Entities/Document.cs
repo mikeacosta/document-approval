@@ -60,6 +60,21 @@ public class Document
 
         Status = DocumentStatus.Rejected;
     }
+    
+    public bool IsCurrentApprover(Guid userId)
+    {
+        if (Status != DocumentStatus.InReview)
+            return false;
+
+        var currentStep = ApprovalSteps
+            .OrderBy(s => s.StepOrder)
+            .FirstOrDefault(s => s.Status == StepStatus.Pending);
+
+        if (currentStep is null)
+            return false;
+
+        return currentStep.ApproverUserId == userId;
+    }
 
     private ApprovalStep GetCurrentStep()
     {

@@ -3,7 +3,7 @@ using DocumentApproval.Application.Common.Errors;
 
 namespace DocumentApproval.Application.Documents.Reject;
 
-public sealed class RejectDocumentCommandHandler
+public sealed class RejectDocumentCommandHandler : ICommandHandler<RejectDocumentCommand>
 {
     private readonly IDocumentRepository _documentRepository;
     private readonly IUnitOfWork _unitOfWork;

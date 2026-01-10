@@ -1,5 +1,6 @@
 
 using DocumentApproval.Application.Abstractions;
+using DocumentApproval.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,7 +20,7 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork, EfUnitOfWork>();
 
         // Repositories
-        // services.AddScoped<IDocumentRepository, DocumentRepository>();
+        services.AddScoped<IDocumentRepository, DocumentRepository>();
 
         return services;
     }

@@ -1,7 +1,7 @@
 using DocumentApproval.Domain.Entities;
 using DocumentApproval.Domain.Exception;
 
-namespace DocumentApproval.Domain.Tests;
+namespace DocumentApproval.Domain.Tests.Entities;
 
 public class DocumentTests
 {
@@ -27,5 +27,27 @@ public class DocumentTests
         // Assert
         var exception = Assert.Throws<DomainException>(act);
         Assert.Equal("User is not authorized for this step.", exception.Message);
+    }   
+    
+    [Fact]
+    public void IsCurrentApprover_returns_true_for_current_pending_step_approver()
+    {
+        // Arrange
+        var approverId = Guid.NewGuid();
+        var otherApproverId = Guid.NewGuid();
+
+        var steps = new[]
+        {
+            new ApprovalStep(1, approverId),       // StepOrder = 1
+            new ApprovalStep(2, otherApproverId)  // StepOrder = 2
+        };
+
+        var document = new Document("Test Document", steps);
+
+        // Act
+        document.Submit(); // Status becomes InReview
+
+        // Assert
+        Assert.True(document.IsCurrentApprover(approverId));
     }    
 }

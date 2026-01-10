@@ -1,5 +1,6 @@
+using DocumentApproval.API.Authorization;
 using DocumentApproval.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,16 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 
 // Add services to the container.
 builder.Services.AddInfrastructure(connectionString);
+
+builder.Services.AddControllers();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(
+        Policies.ApproverOnly,
+        policy => policy.Requirements.Add(new ApproverRequirement()));
+});
+builder.Services.AddScoped<IAuthorizationHandler, ApproverAuthorizationHandler>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
